@@ -39,6 +39,21 @@ public final class GetAverageGradeUseCase {
             }
         }
 
+        if (team == null || team.getMembers() == null ) {
+            return 0;
+        }
+
+        for (String member : team.getMembers()) {
+            Grade[] grades = gradeDataBase.getGrades(member);
+
+            for (Grade g : grades) {
+                if (g.getCourse().equalsIgnoreCase(course)) {
+                    sum += g.getGrade();
+                    count++;
+                }
+            }
+        }
+
         if (count == 0) {
             return 0;
         }
