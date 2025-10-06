@@ -12,10 +12,12 @@ public class GetToken {
     public static void main(String[] args) {
         GetExample example = new GetExample();
 
-        String gradeAPISignUpURL = "https://grade-apis.panchen.ca/signUp";
-        // TODO Task 1: use the run method to get your Grade API token (or obtain your token through a web browser).
+        String gradeAPISignUpURL = "https://grade-apis.panchen.ca/signUp?username=Miles";
         String response = "";
-        // response = example.run( ...)
+        try {
+            response = example.run(gradeAPISignUpURL);
+        }
+        catch (Exception e) {System.out.println(e.getMessage());}
         System.out.println(response);
     }
 }
